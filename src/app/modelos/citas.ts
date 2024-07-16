@@ -1,6 +1,3 @@
-import { Paciente } from './paciente';
-import { Especialista } from './especialista';
-
 export interface Cita {
   id: number;
   pacienteId: number;

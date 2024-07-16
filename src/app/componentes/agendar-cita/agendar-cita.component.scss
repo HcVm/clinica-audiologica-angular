@@ -24,7 +24,7 @@
   }
   
   button {
-    width: 100%; /* Botón ocupa todo el ancho */
+    width: 100%;
     margin-top: 20px;
     border-radius: 25px;
     padding: 8px 16px;
@@ -38,4 +38,29 @@
   .error-message {
     color: red;
     font-size: 12px;
+  }
+
+  mat-toolbar {
+    align-items: center;
+    padding: 16px;
+    margin: 20px;
+    display: flex;
+  }
+  
+  mat-toolbar button {
+    width: 100px;
+    margin-left: 10px;
+    border-radius: 15px;
+    padding: 8px 16px;
+    font-weight: 500;
+    background-color: antiquewhite;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  mat-toolbar button:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  
   }

@@ -2,21 +2,21 @@ table {
   width: 100%;
 
   th {
-    background-color: #f0f0f0; /* Light gray header background */
+    background-color: #f0f0f0;
     font-weight: bold;
   }
 
   td, th {
-    padding: 10px; /* Adjust padding for spacing */
-    border-bottom: 1px solid #ddd; /* Subtle divider between rows */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
   }
 
   .mat-row:hover {
-    background-color: #f5f5f5; /* Hover effect for rows */
+    background-color: #f5f5f5;
   }
 
   .acciones button {
-    margin: 0 5px; /* Space between action buttons */
+    margin: 0 5px;
   }
 }

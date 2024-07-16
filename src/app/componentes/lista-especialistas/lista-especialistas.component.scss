@@ -1,29 +1,28 @@
-/* styles.css (del componente) */
 
 .mat-table {
-    width: 100%; /* Ancho completo de la tabla */
-    margin-top: 16px; /* Margen superior */
-    border-collapse: collapse; /* Colapso de bordes de celda */
+    width: 100%;
+    margin-top: 16px;
+    border-collapse: collapse;
   }
   
   .mat-header-cell, .mat-cell {
-    padding: 12px 16px; /* Espaciado interno de celdas */
-    text-align: left; /* Alineación del texto */
+    padding: 12px 16px;
+    text-align: left;
   }
   
   .mat-header-row, .mat-row {
-    background-color: #f0f0f0; /* Color de fondo de filas */
+    background-color: #f0f0f0;
   }
   
   .mat-header-cell {
-    font-weight: bold; /* Texto en negrita en celdas de encabezado */
+    font-weight: bold;
   }
   
   .mat-row:hover {
-    background-color: #e0e0e0; /* Color de fondo al pasar el mouse por las filas */
+    background-color: #e0e0e0;
   }
   
   .mat-icon-button {
-    margin-right: 8px; /* Margen derecho para los botones de ícono */
+    margin-right: 8px;
   }
   

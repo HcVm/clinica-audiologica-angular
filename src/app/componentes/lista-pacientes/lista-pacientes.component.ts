@@ -28,15 +28,4 @@ export class ListaPacientesComponent implements OnInit {
   editarPaciente(id: number) {
     this.router.navigate(['/editar-paciente', id]);
   }
-
-  eliminarPaciente(id: number) {
-    this.pacientesService.eliminarPaciente(id).subscribe(
-      () => {
-        this.pacientes = this.pacientes.filter(paciente => paciente.id !== id);
-      },
-      (error) => {
-        console.error('Error al eliminar el paciente:', error);
-      }
-    );
-  }
 }

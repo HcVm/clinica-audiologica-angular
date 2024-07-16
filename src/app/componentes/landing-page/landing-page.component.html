@@ -4,11 +4,14 @@
     <span class="toolbar-title">Clínica Audiológica</span>
     <span class="spacer"></span>
       <button mat-button class="toolbar-button" routerLink="/registro">
-      <mat-icon>person_add</mat-icon> Registrarse
+      <mat-icon>person_add</mat-icon> Registrar Paciente
       </button>
       <button mat-button class="toolbar-button" routerLink="/agendar-cita">
       <mat-icon>calendar_today</mat-icon> Agendar Cita
-    </button>
+      </button>
+      <button mat-button class="toolbar-button" routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon> Ingresar al dashboard
+        </button>
   </mat-toolbar>
 
   <div class="banner">
@@ -22,7 +25,7 @@
   </div>
 
   <div class="content">
-    <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-list cols="4" rowHeight="300px">
       <mat-grid-tile>
         <mat-card class="service-card">
           <mat-card-header>

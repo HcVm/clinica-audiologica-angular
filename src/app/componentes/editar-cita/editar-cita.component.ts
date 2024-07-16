@@ -80,7 +80,7 @@ export class EditarCitaComponent implements OnInit {
     if (this.cita) {
       this.citasService.actualizarCita(this.cita).subscribe(
         () => {
-          this.router.navigate(['/']); // Redirige a la lista de citas después de actualizar
+          this.router.navigate(['/']);
         },
         (error) => {
           console.error('Error al actualizar la cita:', error);

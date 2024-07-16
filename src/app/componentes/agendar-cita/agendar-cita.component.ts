@@ -10,15 +10,16 @@ import { Cita } from '../../modelos/citas';
 import { CitasService } from '../../servicios/citas.service';
 import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatCardContent, MatCardModule, MatCardTitle } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatIcon } from '@angular/material/icon';
 
 const moment = _rollupMoment || _moment;
 
-// Configuración de formato de fecha en español
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
@@ -45,7 +46,10 @@ export const MY_FORMATS = {
     MatDatepickerModule, 
     MatNativeDateModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbar,
+    MatIcon,
+    RouterLink
   ],
   templateUrl: './agendar-cita.component.html',
   styleUrl: './agendar-cita.component.scss',
@@ -109,12 +113,10 @@ export class AgendarCitaComponent implements OnInit {
       this.citasService.crearCita(nuevaCita).subscribe(
         response => {
           console.log('Cita agendada:', response);
-          // Puedes mostrar un mensaje de éxito o redirigir a otra página aquí
-          this.router.navigate(['/']); // Ejemplo: Redirigir a la página principal
+          this.router.navigate(['/']);
         },
         error => {
           console.error('Error al agendar cita:', error);
-          // Puedes mostrar un mensaje de error aquí
         }
       );
     }
