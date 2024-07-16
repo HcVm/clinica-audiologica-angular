@@ -16,14 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   templateUrl: './editar-paciente.component.html',
   imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    FormsModule,
-    CommonModule
-  ],
+    MatFormFieldModule,MatInputModule,MatButtonModule,MatDatepickerModule,MatNativeDateModule,FormsModule,CommonModule],
   styleUrls: ['./editar-paciente.component.scss']
 })
 export class EditarPacienteComponent implements OnInit {
