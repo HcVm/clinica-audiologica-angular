@@ -1,47 +1,42 @@
-import { Component } from '@angular/core';
-import { MatCard, MatCardTitle,MatCardContent } from '@angular/material/card';
-import { MatIcon } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
-import { MatTableDataSource } from '@angular/material/table';
-import { Paciente } from '../../modelos/paciente';
+import { Component, OnInit } from '@angular/core';
 import { PacientesService } from '../../servicios/pacientes.service';
-
+import { Paciente } from '../../modelos/paciente';
+import { MatTableModule } from '@angular/material/table';
+import { MatIcon } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-pacientes',
   standalone: true,
-  imports: [MatCard, MatCardTitle,MatCardContent,MatIcon,MatTableModule],
+  imports: [MatTableModule, MatIcon ],
   templateUrl: './lista-pacientes.component.html',
   styleUrl: './lista-pacientes.component.scss'
 })
-export class ListaPacientesComponent {
+export class ListaPacientesComponent implements OnInit {
   pacientes: Paciente[] = [];
-  displayedColumns: string[] = ['nombre', 'fechaNacimiento', 'acciones'];
-  dataSource = new MatTableDataSource<Paciente>(this.pacientes);
+  displayedColumns: string[] = ['dni', 'nombre', 'fechaNacimiento', 'correoElectronico', 'numeroTelefono', 'acciones'];
 
-  constructor(private pacientesService: PacientesService) {
-    this.cargarPacientes();
-  }
+  constructor(private pacientesService: PacientesService, private router: Router) {}
 
-  cargarPacientes() {
+  ngOnInit() {
     this.pacientesService.obtenerPacientes().subscribe(
-      (pacientes) => {
-        this.pacientes = pacientes;
-        this.dataSource = new MatTableDataSource<Paciente>(pacientes);
-      },
-      (error) => {
-        console.error('Error al obtener pacientes:', error);
-      }
+      pacientes => this.pacientes = pacientes,
+      error => console.error('Error al obtener pacientes:', error)
     );
   }
-  
-  verDetalles(paciente: Paciente) {
-    // Lógica para ver detalles del paciente
-    console.log(paciente); // Ejemplo: Mostrar datos en la consola
+
+  editarPaciente(id: number) {
+    this.router.navigate(['/editar-paciente', id]);
   }
 
-  editarPaciente(paciente: Paciente) {
-    // Lógica para editar datos del paciente
-    console.log(paciente); // Ejemplo: Mostrar datos en la consola
+  eliminarPaciente(id: number) {
+    this.pacientesService.eliminarPaciente(id).subscribe(
+      () => {
+        this.pacientes = this.pacientes.filter(paciente => paciente.id !== id);
+      },
+      (error) => {
+        console.error('Error al eliminar el paciente:', error);
+      }
+    );
   }
 }

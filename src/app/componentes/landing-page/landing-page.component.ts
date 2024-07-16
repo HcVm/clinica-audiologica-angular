@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-landing-page',
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MatGridListModule,
     MatToolbarModule,
-    RouterModule
+    RouterModule,
+    MatIcon
   ],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']

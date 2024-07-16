@@ -1,9 +1,14 @@
 <div class="landing-container">
-  <mat-toolbar color="primary">
-    <span>Clínica Audiológica</span>
+
+  <mat-toolbar class="toolbar" color="primary">
+    <span class="toolbar-title">Clínica Audiológica</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="/registro">Registrarse</button>
-    <button mat-button routerLink="/agendar-cita">Agendar Cita</button>
+      <button mat-button class="toolbar-button" routerLink="/registro">
+      <mat-icon>person_add</mat-icon> Registrarse
+      </button>
+      <button mat-button class="toolbar-button" routerLink="/agendar-cita">
+      <mat-icon>calendar_today</mat-icon> Agendar Cita
+    </button>
   </mat-toolbar>
 
   <div class="banner">

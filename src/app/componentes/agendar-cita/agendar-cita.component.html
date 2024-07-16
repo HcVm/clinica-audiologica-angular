@@ -1,34 +1,39 @@
-<mat-card>
-    <mat-card-title>Agendar Cita</mat-card-title>
-    <mat-card-content>
-      <form>
-        <mat-form-field appearance="outline">
-          <mat-label>Paciente</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let paciente of pacientes" [value]="paciente.id">
-              {{ paciente.nombre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <mat-form-field appearance="outline">
-          <mat-label>Especialista</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let especialista of especialistas" [value]="especialista.id">
-              {{ especialista.nombre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <mat-form-field appearance="outline">
-          <mat-label>Fecha y Hora</mat-label>
-          <input matInput [matDatepicker]="picker" placeholder="Fecha y Hora">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-  
-        <button mat-raised-button color="primary">Agendar Cita</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-  
+<div class="card">
+  <h2>Agendar Cita</h2>
+
+  <form [formGroup]="citaForm" (ngSubmit)="agendarCita()">
+    <div class="form-group">
+      <label for="paciente">Paciente:</label>
+      <select id="paciente" formControlName="pacienteId">
+        <option *ngFor="let paciente of pacientes" [value]="paciente.id">
+          {{ paciente.nombre }} (DNI: {{ paciente.dni }})
+        </option>
+      </select>
+      <div *ngIf="citaForm.get('pacienteId')?.invalid && citaForm.get('pacienteId')?.touched" class="error-message">
+        Por favor, selecciona un paciente.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="especialista">Especialista:</label>
+      <select id="especialista" formControlName="especialistaId">
+        <option *ngFor="let especialista of especialistas" [value]="especialista.id">
+          {{ especialista.nombre }} ({{ especialista.especialidad }})
+        </option>
+      </select>
+      <div *ngIf="citaForm.get('especialistaId')?.invalid && citaForm.get('especialistaId')?.touched" class="error-message">
+        Por favor, selecciona un especialista.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fechaHora">Fecha y Hora:</label>
+      <input type="datetime-local" id="fechaHora" formControlName="fechaHora">
+      <div *ngIf="citaForm.get('fechaHora')?.invalid && citaForm.get('fechaHora')?.touched" class="error-message">
+        Por favor, selecciona una fecha y hora.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!citaForm.valid">Agendar Cita</button>
+  </form>
+</div>

@@ -6,21 +6,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCard, MatCardTitle,MatCardContent } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { Router } from '@angular/router';
 
 import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatIcon } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-registro-paciente',
   standalone: true,
-  imports: [MatFormFieldModule,MatInputModule,MatCard, MatCardTitle,MatCardContent,MatDatepickerModule,MatNativeDateModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule,MatInputModule,MatCard, MatCardTitle,MatCardContent,MatDatepickerModule,MatNativeDateModule, ReactiveFormsModule, MatToolbar, MatIcon],
   templateUrl: './registro-paciente.component.html',
   styleUrl: './registro-paciente.component.scss'
 })
 export class RegistroPacienteComponent {
   pacienteForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private pacientesService: PacientesService) {
+  constructor(private fb: FormBuilder, private pacientesService: PacientesService, private router: Router) {
     this.pacienteForm = this.fb.group({
       dni: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -42,5 +45,9 @@ export class RegistroPacienteComponent {
         }
       );
     }
+  }
+
+  volver() {
+    this.router.navigate(['/']);
   }
 }

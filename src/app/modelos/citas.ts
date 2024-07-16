@@ -1,9 +1,11 @@
-import { Paciente } from './Paciente';
+import { Paciente } from './paciente';
 import { Especialista } from './especialista';
 
 export interface Cita {
   id: number;
-  paciente: Paciente;
-  especialista: Especialista;
+  pacienteId: number;
+  pacienteNombre: string;
+  especialistaId: number;
+  especialistaNombre: string;
   fechaHora: Date;
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistorialMedicoComponent } from './historial-medico.component';
+import { EditarCitaComponent } from './editar-cita.component';
 
-describe('HistorialMedicoComponent', () => {
-  let component: HistorialMedicoComponent;
-  let fixture: ComponentFixture<HistorialMedicoComponent>;
+describe('EditarCitaComponent', () => {
+  let component: EditarCitaComponent;
+  let fixture: ComponentFixture<EditarCitaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HistorialMedicoComponent]
+      imports: [EditarCitaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HistorialMedicoComponent);
+    fixture = TestBed.createComponent(EditarCitaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
