@@ -24,16 +24,15 @@
   }
   
   button {
-    width: 100%;
-    margin-top: 20px;
-    border-radius: 25px;
-    padding: 8px 16px;
-    font-weight: 500;
+    margin-left: 10px;
+    border-radius: 15px;
     background-color: antiquewhite;
     cursor: pointer;
-    text-align: center;
-    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
+  
   
   .error-message {
     color: red;
@@ -47,19 +46,6 @@
     display: flex;
   }
   
-  mat-toolbar button {
-    width: 100px;
-    margin-left: 10px;
-    border-radius: 15px;
-    padding: 8px 16px;
-    font-weight: 500;
-    background-color: antiquewhite;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
   mat-toolbar button:hover {
     background-color: rgba(0, 0, 0, 0.04);
   

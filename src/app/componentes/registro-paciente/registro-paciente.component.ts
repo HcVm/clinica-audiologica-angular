@@ -39,6 +39,7 @@ export class RegistroPacienteComponent {
         response => {
           console.log('Paciente registrado:', response);
           this.pacienteForm.reset();
+          this.router.navigate(['/']);
         },
         error => {
           console.error('Error al registrar paciente:', error);
